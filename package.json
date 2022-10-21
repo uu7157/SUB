@@ -1,0 +1,19 @@
+{
+  "name": "SUB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uu7157/SUB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uu7157/SUB/issues"
+  },
+  "homepage": "https://github.com/uu7157/SUB#readme"
+}
