@@ -61,7 +61,7 @@ async def softmux(client, message):
         await sent_msg.edit(text)
     except Exception as e:
         print(e)
-        command = ['curl', '-T', f'{file_name}', '-u', ':f43980b8-daf6-4396-b6e4-361ed9a4a5a5', 'https://pixeldrain.com/api/file/']
+        command = ['curl', '-T', f'{path+final_filename}', '-u', ':f43980b8-daf6-4396-b6e4-361ed9a4a5a5', 'https://pixeldrain.com/api/file/']
         process = subprocess.run(command, capture_output=True, text=True)
         stdout_output = process.stdout
         await client.send_message(chat_id, stdout_output)
