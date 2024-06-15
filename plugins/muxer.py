@@ -65,8 +65,8 @@ async def softmux(client, message):
         command = ['curl', '-T', path+final_filename, '-u', ':f43980b8-daf6-4396-b6e4-361ed9a4a5a5', 'https://pixeldrain.com/api/file/']
         process = subprocess.run(command, capture_output=True, text=True)
         stdout_output = process.stdout
-        print(stdout_output)
         await client.send_message(chat_id, stdout_output)
+        print(stdout_output)
         # await client.send_message(chat_id, 'An error occured while uploading the file!\nCheck logs for details of the error!')
 
     path = Config.DOWNLOAD_DIR+'/'
@@ -123,7 +123,13 @@ async def hardmux(client, message):
         await sent_msg.edit(text)
     except Exception as e:
         print(e)
-        await client.send_message(chat_id, 'An error occured while uploading the file!\nCheck logs for details of the error!')
+        path = Config.DOWNLOAD_DIR+'/'
+        command = ['curl', '-T', path+final_filename, '-u', ':f43980b8-daf6-4396-b6e4-361ed9a4a5a5', 'https://pixeldrain.com/api/file/']
+        process = subprocess.run(command, capture_output=True, text=True)
+        stdout_output = process.stdout
+        await client.send_message(chat_id, stdout_output)
+        print(stdout_output)
+        # await client.send_message(chat_id, 'An error occured while uploading the file!\nCheck logs for details of the error!')
     
     path = Config.DOWNLOAD_DIR+'/'
     os.remove(path+og_sub_filename)
