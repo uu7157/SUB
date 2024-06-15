@@ -5,6 +5,7 @@ from helper_func.mux import softmux_vid, hardmux_vid, softremove_vid
 from config import Config
 import time
 import os
+import subprocess
 
 db = Db()
 
@@ -61,8 +62,9 @@ async def softmux(client, message):
     except Exception as e:
         print(e)
         command = ['curl', '-T', f'{file_name}', '-u', ':f43980b8-daf6-4396-b6e4-361ed9a4a5a5', 'https://pixeldrain.com/api/file/']
-        await result = subprocess.run(command, capture_output=True, text=True)
-        await client.send_message(chat_id, result.stdout)
+        process = subprocess.run(command, capture_output=True, text=True)
+        stdout_output = process.stdout
+        await client.send_message(chat_id, stdout_output)
         # await client.send_message(chat_id, 'An error occured while uploading the file!\nCheck logs for details of the error!')
 
     path = Config.DOWNLOAD_DIR+'/'
