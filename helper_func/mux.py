@@ -108,6 +108,7 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
             'ffmpeg','-hide_banner',
             '-i',vid,
             '-vf','subtitles='+sub+':fontsdir=fonts:force_style="FontName=NotoKufiArabic-Bold\,Fontsize=28"',
+            f'drawtext=text=\'عالم الدراما\':fontfile=fonts/NotoKufiArabic-Bold.ttf:fontsize=h/40:fontcolor=white:borderw=2:bordercolor=black:x=10:y=10',
             '-c:v','h264',
             '-map','0:v:0',
             '-map','0:a:0?',
