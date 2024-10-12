@@ -35,6 +35,7 @@ async def read_stderr(start, msg, process):
             line = line.decode('utf-8')
             progress = parse_progress(line)
             if progress:
+                print(progress)
                 #Progress bar logic
                 now = time.time()
                 diff = start-now
@@ -123,7 +124,6 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
             )
     
     # https://github.com/jonghwanhyeon/python-ffmpeg/blob/ccfbba93c46dc0d2cafc1e40ecb71ebf3b5587d2/ffmpeg/ffmpeg.py#L114
-    print(process)
     await asyncio.wait([
             read_stderr(start,msg, process),
             process.wait(),
