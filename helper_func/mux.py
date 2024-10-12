@@ -33,9 +33,9 @@ async def readlines(stream):
 async def read_stderr(start, msg, process):
     async for line in readlines(process.stderr):
             line = line.decode('utf-8')
+            print(line)
             progress = parse_progress(line)
             if progress:
-                print(progress)
                 #Progress bar logic
                 now = time.time()
                 diff = start-now
