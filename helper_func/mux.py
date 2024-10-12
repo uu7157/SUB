@@ -33,7 +33,6 @@ async def readlines(stream):
 async def read_stderr(start, msg, process):
     async for line in readlines(process.stderr):
             line = line.decode('utf-8')
-            print(line)
             progress = parse_progress(line)
             if progress:
                 #Progress bar logic
@@ -108,8 +107,7 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
     command = [
             'ffmpeg','-hide_banner',
             '-i',vid,
-            '-vf','subtitles='+sub+':fontsdir=fonts:force_style="FontName=NotoKufiArabic-Bold\,Fontsize=28"',
-            f'drawtext=text=\'عالم الدراما\':fontfile=fonts/NotoKufiArabic-Bold.ttf:fontsize=h/40:fontcolor=white:borderw=2:bordercolor=black:x=10:y=10',
+            '-vf', 'subtitles='+sub+':fontsdir=fonts,drawtext=text=\'عالم الدراما\':fontfile=fonts/NotoKufiArabic-Bold.ttf:fontsize=h/40:fontcolor=white:borderw=2:bordercolor=black:x=10:y=10',
             '-c:v','h264',
             '-map','0:v:0',
             '-map','0:a:0?',
