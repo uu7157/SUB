@@ -80,10 +80,11 @@ async def softmux_vid(vid_filename, sub_filename, msg):
 
     # https://github.com/jonghwanhyeon/python-ffmpeg/blob/ccfbba93c46dc0d2cafc1e40ecb71ebf3b5587d2/ffmpeg/ffmpeg.py#L114
     
-    await asyncio.wait([
-            read_stderr(start,msg, process),
-            process.wait(),
-        ])
+	await asyncio.wait([
+	        asyncio.create_task(read_stderr(start, msg, 	process)),
+	        asyncio.create_task(process.wait()),
+	    ])
+
     
     if process.returncode == 0:
         await msg.edit('Muxing  Completed Successfully!\n\nTime taken : {} seconds'.format(round(start-time.time())))
@@ -122,10 +123,10 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
             )
     
     # https://github.com/jonghwanhyeon/python-ffmpeg/blob/ccfbba93c46dc0d2cafc1e40ecb71ebf3b5587d2/ffmpeg/ffmpeg.py#L114
-    await asyncio.wait([
-            read_stderr(start,msg, process),
-            process.wait(),
-        ])
+	await asyncio.wait([
+	        asyncio.create_task(read_stderr(start, msg, 	process)),
+	        asyncio.create_task(process.wait()),
+	    ])
     
     if process.returncode == 0:
         await msg.edit('Muxing  Completed Successfully!\n\nTime taken : {} seconds'.format(round(start-time.time())))
@@ -173,10 +174,10 @@ async def softremove_vid(vid_filename, sub_filename, msg):
 
     # https://github.com/jonghwanhyeon/python-ffmpeg/blob/ccfbba93c46dc0d2cafc1e40ecb71ebf3b5587d2/ffmpeg/ffmpeg.py#L114
     
-    await asyncio.wait([
-            read_stderr(start,msg, process),
-            process.wait(),
-        ])
+	await asyncio.wait([
+	        asyncio.create_task(read_stderr(start, msg, 	process)),
+	        asyncio.create_task(process.wait()),
+	    ])
     
     if process.returncode == 0:
         await msg.edit('Muxing  Completed Successfully!\n\nTime taken : {} seconds'.format(round(start-time.time())))
