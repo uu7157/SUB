@@ -79,8 +79,7 @@ async def softmux_vid(vid_filename, sub_filename, msg):
             )
 
     # https://github.com/jonghwanhyeon/python-ffmpeg/blob/ccfbba93c46dc0d2cafc1e40ecb71ebf3b5587d2/ffmpeg/ffmpeg.py#L114
-    
-	await asyncio.wait([
+    await asyncio.wait([
 	        asyncio.create_task(read_stderr(start, msg, 	process)),
 	        asyncio.create_task(process.wait()),
 	    ])
@@ -123,7 +122,7 @@ async def hardmux_vid(vid_filename, sub_filename, msg):
             )
     
     # https://github.com/jonghwanhyeon/python-ffmpeg/blob/ccfbba93c46dc0d2cafc1e40ecb71ebf3b5587d2/ffmpeg/ffmpeg.py#L114
-	await asyncio.wait([
+    await asyncio.wait([
 	        asyncio.create_task(read_stderr(start, msg, 	process)),
 	        asyncio.create_task(process.wait()),
 	    ])
@@ -174,7 +173,7 @@ async def softremove_vid(vid_filename, sub_filename, msg):
 
     # https://github.com/jonghwanhyeon/python-ffmpeg/blob/ccfbba93c46dc0d2cafc1e40ecb71ebf3b5587d2/ffmpeg/ffmpeg.py#L114
     
-	await asyncio.wait([
+    await asyncio.wait([
 	        asyncio.create_task(read_stderr(start, msg, 	process)),
 	        asyncio.create_task(process.wait()),
 	    ])
